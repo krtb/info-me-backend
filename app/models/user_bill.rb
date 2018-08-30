@@ -1,0 +1,2 @@
+class UserBill < ApplicationRecord
+end
