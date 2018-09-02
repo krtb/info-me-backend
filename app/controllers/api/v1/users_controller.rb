@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
  before_action :find_user, only: [:show, :destroy, :update]
+ 
  def index
    @users = User.all
    render json: { users: User.all}
@@ -15,8 +16,14 @@ class Api::V1::UsersController < ApplicationController
  end
 
  def create
-   @user = User.create(user_params)
-   render json: {user: @user}
+  @user = User.create(user_params)
+  if @user.valid?
+    render json: { user: UserSerializer.new(@user) }, status: :created
+  else
+    render json: { error: 'failed to create user' }, status: :not_acceptable
+  end
+  #  @user = User.create(user_params)
+  #  render json: {user: @user}
  end
 
  def update
@@ -38,7 +45,7 @@ class Api::V1::UsersController < ApplicationController
  private
 
  def user_params
-   params.permit(:name, :email, :zip_code, :password_digest, :political_party)
+   params.require(:user).permit(:name, :email, :password, :zip_code, :political_party)
  end
 
  def find_user
