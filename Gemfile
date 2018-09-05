@@ -49,3 +49,7 @@ gem 'active_model_serializers'
 gem "jwt", "~> 2.1"
 
 gem "faker", "~> 1.9"
+# adding gem for get requests
+gem 'rest-client'
+# adding debugging tool
+gem 'pry'
