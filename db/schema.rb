@@ -17,6 +17,11 @@ ActiveRecord::Schema.define(version: 2018_08_30_204229) do
 
   create_table "bills", force: :cascade do |t|
     t.string "api_bill_id"
+    t.string "chamber"
+    t.string "bill_number"
+    t.string "description"
+    t.string "bill_url"
+    t.string "legislative_day"
     t.boolean "for_bill?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
