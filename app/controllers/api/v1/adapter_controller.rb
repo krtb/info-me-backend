@@ -22,7 +22,7 @@ class Api::V1::AdapterController < ApplicationController
                                   )
                                   
         end
-        # redirect_to('http://localhost:3000/searchbills')
+        # redirect_to('http://localhost:3000/')
         # parsed_bill["results"][0]["bills"]
         # redirect_to 
 
@@ -32,6 +32,7 @@ class Api::V1::AdapterController < ApplicationController
         # url: parsed_bill["results"][0]["bills"][0]-["url"]
         # legislative_day: parsed_bill["results"][0]-["bills"][0]["legislative_day"]
         # bill_number: parsed_bill["results"][0]-["bills"][0]["bill_number"]
+        render json: {message: 'Bills have been fetched'}
     end
 
     

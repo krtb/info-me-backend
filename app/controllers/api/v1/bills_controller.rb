@@ -1,5 +1,7 @@
 class Api::V1::BillsController < ApplicationController
  before_action :find_bill, only: [:show, :destroy, :update]
+#  skip_before_action :authorized, only: [:index]
+
  def index
    @bills = Bill.all
    render json: { bills: Bill.all}
