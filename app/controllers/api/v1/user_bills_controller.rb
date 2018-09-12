@@ -1,4 +1,4 @@
-class Api::V1::UserUserBillsController < ApplicationController
+class Api::V1::UserBillsController < ApplicationController
  before_action :find_user_bill, only: [:show, :destroy, :update]
  def index
    @user_bills = UserBill.all
