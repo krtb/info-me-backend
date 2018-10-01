@@ -32,7 +32,7 @@ class Api::V1::AdapterController < ApplicationController
         # url: parsed_bill["results"][0]["bills"][0]-["url"]
         # legislative_day: parsed_bill["results"][0]-["bills"][0]["legislative_day"]
         # bill_number: parsed_bill["results"][0]-["bills"][0]["bill_number"]
-        render json: {message: 'Bills have been fetched'}
+        render json: parsed_bill
     end
 
     
