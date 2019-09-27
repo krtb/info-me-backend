@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: informo-backend_development
+  database: <%= ENV['DATABASE_DEV'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: informo-backend_production
-  username: informo-backend
-  password: <%= ENV['INFORMO-BACKEND_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_DEV'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
