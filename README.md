@@ -1,24 +1,34 @@
-# README
+# InfoMe Web App API
+* Back-End for InfoMe app
+* Makes calls to ProPublica Api
+* Currently hosted with Heroku
+* Front end of app built with React can be fund here: 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites prior to installation
+* Have `NPM` installed
+  * Version: `6.11.2`
+* Have `Ruby` installed
+  * Version: `2.6.4`
+* Have `Ruby On Rails` installed
+  * Version: `gem 'rails', '~> 5.2.0'`
+* Have `PostgreSql` installed
+  * Version: `gem 'pg', '~> 0.18.4'`
+* Herkoku CLI
 
-Things you may want to cover:
+## Setup
+1. cd int project
+2. bundle install
+3. rails db:migrate 
 
-* Ruby version
+## Relational Database Management, Schema Overview
+* Bills
+* User_Bills
+* Users
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Tech Stack
+* Database
+  * PostgreSql
+* Framework
+  * Rails
+* Back-End Language, Object-Oriented
+  * Ruby
