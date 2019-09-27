@@ -1,8 +1,8 @@
 # InfoMe Web App API
 * Back-End for `InfoMe app`
-* Makes calls to ProPublica Api
-* Currently hosted with Heroku
-* Front end of app built with React can be fund here: 
+* Makes calls to `ProPublica Api`
+* Currently hosted with: `Heroku`
+* Front-End of app built with React can be found here: [InforMee](https://github.com/krtb/InforMee-Frontend)
 
 ## Prerequisites prior to installation
 * Have `NPM` installed
