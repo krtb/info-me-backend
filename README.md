@@ -1,5 +1,5 @@
 # InfoMe Web App API
-* Back-End for InfoMe app
+* Back-End for `InfoMe app`
 * Makes calls to ProPublica Api
 * Currently hosted with Heroku
 * Front end of app built with React can be fund here: 
