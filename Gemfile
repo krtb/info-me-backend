@@ -14,8 +14,6 @@ gem 'active_model_serializers', '~> 0.10.10'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 # Manage JSON Web tokens
 gem 'jwt', '~> 2.2', '>= 2.2.1'
-# add dotenv gem to hide ENV VARS
-gem 'dotenv-rails', groups: [:development, :test]
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -43,6 +41,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
     # create fake data
   gem 'faker', '~> 2.5'
+  # add dotenv gem to hide ENV VARS
+  gem 'dotenv-rails'
 end
 
 group :development do
