@@ -2,30 +2,37 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.4'
-# add dotenv gem to hide ENV VARS
-gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
+# For REST services
+gem 'rest-client', '~> 2.1'
+# Debugging tool
+gem 'pry', '~> 0.12.2'
+# To define which model attributes and relationships need to be serialized
+gem 'active_model_serializers', '~> 0.10.10'
+# Use ActiveModel, has_secure_password
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+# Manage JSON Web tokens
+gem 'jwt', '~> 2.2', '>= 2.2.1'
+# add dotenv gem to hide ENV VARS
+gem 'dotenv-rails', groups: [:development, :test]
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
@@ -34,6 +41,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # adding rspec testing framework
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+    # create fake data
+  gem 'faker', '~> 2.5'
 end
 
 group :development do
@@ -45,14 +54,4 @@ end
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# adding personal gem: need to convert data into a format that can be easily transferred across a network as a string, reconstructed later
-gem 'active_model_serializers'
-gem "jwt", "~> 2.1"
-
-gem "faker", "~> 1.9"
-# adding gem for get requests
-gem 'rest-client'
-# adding debugging tool
-gem 'pry'
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
