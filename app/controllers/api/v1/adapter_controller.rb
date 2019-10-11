@@ -22,16 +22,6 @@ class Api::V1::AdapterController < ApplicationController
                                   )
                                   
         end
-        # redirect_to('http://localhost:3000/')
-        # parsed_bill["results"][0]["bills"]
-        # redirect_to 
-
-        # information ----
-        # chamber: parsed_bill["results"][0]["bills"]-[0]["chamber"]
-        # description: parsed_bill["results"][0]-["bills"][0]["description"]
-        # url: parsed_bill["results"][0]["bills"][0]-["url"]
-        # legislative_day: parsed_bill["results"][0]-["bills"][0]["legislative_day"]
-        # bill_number: parsed_bill["results"][0]-["bills"][0]["bill_number"]
         render json: parsed_bill
     end
 
