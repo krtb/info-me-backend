@@ -16,7 +16,10 @@ require "rails/test_unit/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Dotenv::Railtie.load #quicker initialization of dotenv gem, NOT NECESSARY BUT PRECAUTION
+# Dotenv::Railtie.load #quicker initialization of dotenv gem, NOT NECESSARY BUT PRECAUTION
+if ['development', 'test'].include? ENV['RAILS_ENV']
+  Dotenv::Railtie.load # run DOTENV only if the environment matches your file group
+end
 
 module InformoBackend
   class Application < Rails::Application
