@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Deploy to heroku",
   "private": true,
-  "proxy": "http://localhost:3001",
   "main": "index.js",
   "repository": "git@github.com:krtb/infome-backend.git",
   "author": "Kurt Bauer <kurtbauer55@protonmail.com>",
@@ -13,4 +12,4 @@
     "deploy": "cp -a client/build/. public/",
     "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
   }
-}
+}  
