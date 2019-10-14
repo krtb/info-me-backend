@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['DATABASE_PROD'] %>
+  database: <%= 'postgres://tjedwlyuoyxbzq:0376e9ec6c4f49d98411d766ce1111750542f8d7f827afce9eb77a00f972054e@ec2-54-83-
+201-84.compute-1.amazonaws.com:5432/d6aa00pt5u79iu' %>
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
