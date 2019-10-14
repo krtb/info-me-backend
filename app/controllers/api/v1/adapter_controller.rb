@@ -6,7 +6,7 @@ class Api::V1::AdapterController < ApplicationController
       bill_api_url = 'https://api.propublica.org/congress/v1/bills/upcoming/house.json'
 
         header =  {
-            'X-API-Key': 'zSbuRGW96UaVnIyWENZoHMaFq5lsTJgctPo7952M'
+            'X-API-Key': 'zSbuRGW96UaVnIyWENZoHMaFq5lsTJgctPo7952M',
             'Content-Type': 'application/json', 
             'Accept': 'application/json'
         }
