@@ -12,6 +12,7 @@ class Api::V1::AdapterController < ApplicationController
         bill_get_response =  RestClient.get(bill_api_url, header)
 
         parsed_bill = JSON.parse(bill_get_response.body)
+        puts parsed_bill
         parsed_bill["results"][0]["bills"].each do |bill|
 
             Bill.find_or_create_by( chamber: bill["chamber"],
