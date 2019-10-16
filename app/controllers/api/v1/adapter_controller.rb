@@ -7,13 +7,13 @@ class Api::V1::AdapterController < ApplicationController
 
         header =  {
             "X-API-Key": "zSbuRGW96UaVnIyWENZoHMaFq5lsTJgctPo7952M",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
         }
         # TODO: adding content-type and accept to fix bug: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
         bill_get_response =  RestClient.get(bill_api_url, header)
 
         parsed_bill = JSON.parse(bill_get_response.body)
-
         parsed_bill["results"][0]["bills"].each do |bill|
 
             Bill.find_or_create_by( chamber: bill["chamber"],
@@ -24,7 +24,7 @@ class Api::V1::AdapterController < ApplicationController
                                   )
                                   
         end
-        render (json: parsed_bill) #try this fix
+        render json: parsed_bill
     end
 
     
