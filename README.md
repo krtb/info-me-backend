@@ -2,7 +2,7 @@
 * Back-End for `InfoMe app`
 * Makes calls to `ProPublica Api`
 * Currently hosted with: `Heroku`
-* Front-End of app built with React can be found here: [InforMee](https://github.com/krtb/InforMee-Frontend)
+* Front-End of app built with React can be found here: [Infome Front-End](https://github.com/krtb/InforMee-Frontend)
 
 ## Prerequisites prior to installation
 * Have `NPM` installed
