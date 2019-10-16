@@ -6,9 +6,8 @@ class Api::V1::AdapterController < ApplicationController
       bill_api_url = 'https://api.propublica.org/congress/v1/bills/upcoming/house.json'
 
         header =  {
-            'X-API-Key': 'zSbuRGW96UaVnIyWENZoHMaFq5lsTJgctPo7952M',
-            'Accept': 'application/json'
-            'credentials': 'same-origin'
+            "X-API-Key": "zSbuRGW96UaVnIyWENZoHMaFq5lsTJgctPo7952M",
+            "Content-Type": "application/json"
         }
         # TODO: adding content-type and accept to fix bug: SyntaxError: JSON.parse: unexpected character at line 1 column 1 of the JSON data
         bill_get_response =  RestClient.get(bill_api_url, header)
