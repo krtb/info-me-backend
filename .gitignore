@@ -1,3 +1,6 @@
+# additional files
+localStorage.rb
+
 *.gem
 *.rbc
 /.config
