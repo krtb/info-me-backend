@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  # GET api/v1/users/:id ==> missing?
+  # GET api/v1/users/:id
   def show
     render json: { user: @user}
   end
@@ -34,7 +34,7 @@ class Api::V1::UsersController < ApplicationController
    end
   end
 
-  # DELETE /api/v1/users/:id ==> missing?
+  # DELETE /api/v1/users/:id
   def destroy
    @user.destroy
    render json: @user, status: :accepted
