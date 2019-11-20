@@ -1,10 +1,11 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: %i[create]
+  before_action :find_user, only: [:show, :destroy, :update]
+  # skip_before_action :authorized, only: %i[create]
  
  # GET /api/v1/users
  def index
    @users = User.all
-   render json: { users: User.all}
+    render json: { users: User.all}
  end
 
   # POST /api/v1/users
