@@ -1,24 +1,14 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: %i[create]
+  before_action :find_user, only: [:show, :update, :destroy ]
+  # skip_before_action :authorized, only: %i[create]
  
+ # GET /api/v1/users
  def index
    @users = User.all
-   render json: { users: User.all}
+    render json: { users: User.all}
  end
 
- def new
-   @user = User.create
- end
-
- def show
-   # @user = User.find(params[:id])
-   render json: { user: @user}
- end
-
-  def profile
-    render json: { user: UserSerializer.new(current_user) }, status: :accepted
-  end
-
+  # POST /api/v1/users
   def create
     @user = User.create(user_params)
     if @user.valid?
@@ -29,24 +19,37 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
- def update
-   # @user = User.find(params[:id])
+  # GET api/v1/users/:id
+  def show
+    render json: { user: @user}
+  end
+
+  # PUT /api/v1/users/:id
+  def update
    @user.update(user_params)
    if @user.save
      render json: @user, status: :accepted
    else
      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
    end
- end
+  end
 
- def destroy
-   # @post = post.find(params[:id])
+  # DELETE /api/v1/users/:id
+  def destroy
    @user.destroy
    render json: @user, status: :accepted
- end
+  end
+
+  def new
+    @user = User.create
+  end
+
+  def profile
+    render json: { user: UserSerializer.new(current_user) }, status: :accepted
+  end
 
  private
-
+ # WHITELIST these params
  def user_params
    params.require(:user).permit(:name, :email, :password, :zip_code, :political_party)
  end
