@@ -3,10 +3,10 @@ class Api::V1::UsersController < ApplicationController
   # skip_before_action :authorized, only: %i[create]
  
  # GET /api/v1/users
- def index
-   @users = User.all
+  def index
+    @users = User.all
     render json: { users: User.all}
- end
+  end
 
   # POST /api/v1/users
   def create
@@ -26,18 +26,18 @@ class Api::V1::UsersController < ApplicationController
 
   # PUT /api/v1/users/:id
   def update
-   @user.update(user_params)
-   if @user.save
-     render json: @user, status: :accepted
-   else
-     render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
-   end
+    @user.update(user_params)
+    if @user.save
+      render json: @user, status: :accepted
+    else
+      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
+    end
   end
 
   # DELETE /api/v1/users/:id
   def destroy
-   @user.destroy
-   render json: @user, status: :accepted
+    @user.destroy
+    render json: @user, status: :accepted
   end
 
   def new
@@ -50,11 +50,11 @@ class Api::V1::UsersController < ApplicationController
 
  private
  # WHITELIST these params
- def user_params
-   params.require(:user).permit(:name, :email, :password, :zip_code, :political_party)
- end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :zip_code, :political_party)
+  end
 
- def find_user
-   @user = User.find(params[:id])
- end
+  def find_user
+    @user = User.find(params[:id])
+  end
 end
