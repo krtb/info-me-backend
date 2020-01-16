@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :find_user, only: [:show, :update, :destroy ]
+  before_action :set_user, only: [:edit, :update, :show ]
   # skip_before_action :authorized, only: %i[create]
  
  # GET /api/v1/users
@@ -11,12 +11,14 @@ class Api::V1::UsersController < ApplicationController
   # POST /api/v1/users
   def create
     @user = User.create(user_params)
+
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
+
   end
 
   # GET api/v1/users/:id
@@ -54,7 +56,7 @@ class Api::V1::UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :zip_code, :political_party)
   end
 
-  def find_user
+  def set_user
     @user = User.find(params[:id])
   end
 end
