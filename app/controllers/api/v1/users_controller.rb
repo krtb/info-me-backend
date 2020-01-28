@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+   before_action :set_user, only: [:edit, :update]
    skip_before_action :authorized, only: %i[create]
  
  # GET /api/v1/users
@@ -12,7 +13,8 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.valid?
-      @token = encode_token({ user_id: @user.id })
+      # TODO: changed to encode password in (auth_controller), then here if doesn't work
+      @token = encode_token({ user_: @user.id })
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
@@ -23,6 +25,9 @@ class Api::V1::UsersController < ApplicationController
   # GET api/v1/users/:id
   def show
     render json: { user: @user}
+  end
+
+  def edit
   end
 
   # PUT /api/v1/users/:id
