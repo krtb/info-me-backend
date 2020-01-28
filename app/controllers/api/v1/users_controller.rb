@@ -13,7 +13,6 @@ class Api::V1::UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.valid?
-      # TODO: changed to encode password in (auth_controller), then here if doesn't work
       @token = encode_token({ user_: @user.id })
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
