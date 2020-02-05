@@ -16,7 +16,9 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'jwt', '~> 2.2', '>= 2.2.1'
 # Use postgresql as the database for Active Record
 # gem 'postgresql', '~> 1.0'
-
+# PAGINATION
+gem 'will_paginate'
+gem 'api-pagination'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Reduces boot times through caching; required in config/boot.rb
