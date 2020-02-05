@@ -1,11 +1,11 @@
 class Api::V1::BillsController < ApplicationController
   before_action :find_bill, only: [:show, :destroy, :update]
-  # skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index]
 
   # GET /api/v1/bills
   def index
-    @bills = Bill.all
-    render json: { bills: Bill.all}
+    @bills = Bill.paginate(page: params[:page], per_page: 100) 
+    render json: {bills: @bills }
   end
 
   # POST /api/v1/bills
