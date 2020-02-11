@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get '/fetchbills', to: 'adapter#fetch_bills'
       resources :bills
       resources :user_bills
+      resources :picked_bills
     end
   end
 end
