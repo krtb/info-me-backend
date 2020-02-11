@@ -1,6 +1,5 @@
 class Api::V1::BillsController < ApplicationController
   before_action :find_bill, only: [:show, :destroy, :update]
-  skip_before_action :authorized, only: [:index]
 
   # GET /api/v1/bills
   def index
