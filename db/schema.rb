@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_173011) do
+ActiveRecord::Schema.define(version: 2020_02_11_171443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,33 @@ ActiveRecord::Schema.define(version: 2019_11_21_173011) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "picked_bills", force: :cascade do |t|
+    t.string "api_bill_id"
+    t.string "chamber"
+    t.string "bill_number"
+    t.string "description"
+    t.string "bill_url"
+    t.string "legislative_day"
+    t.string "user_opinion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "user_bills", force: :cascade do |t|
     t.integer "user_id"
     t.integer "bill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_picked_bills", force: :cascade do |t|
+    t.bigint "picked_bill_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["picked_bill_id"], name: "index_user_picked_bills_on_picked_bill_id"
+    t.index ["user_id"], name: "index_user_picked_bills_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,4 +66,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_173011) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "user_picked_bills", "picked_bills"
+  add_foreign_key "user_picked_bills", "users"
 end
