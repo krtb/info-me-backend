@@ -20,7 +20,6 @@ class Api::V1::BillsController < ApplicationController
 
   # PUT /api/v1/bills/:id
   def update
-    # @bill = Bill.find(params[:id])
     @bill.update(bill_params)
     if @bill.save
       render json: @bill, status: :accepted
